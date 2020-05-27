@@ -1,0 +1,23 @@
+<div>
+    <h1>{{title}}</h1>
+    <div *ngIf="user">
+        <p>Username: {{user.username}}</p>
+        <p>Email: {{user.email}}</p>
+    </div>
+    <div *ngIf="user">
+        <p>
+            <label>First Name:</label>
+            <input type="text" (ngModelChange)="changeName($event)" [(ngModel)]="user.firstName" />
+        </p>
+        <p>
+            <label>Last Name:</label>
+            <input type="text" (ngModelChange)="changeName($event)" [(ngModel)]="user.lastName" />
+            <input type="button" value="Save" (click)="saveProfile()" />
+        </p>
+    </div>
+    <p *ngIf="isLoading">Loading
+        profile...</p>
+    <p *ngIf="isSaving">Saving
+        profile...</p>
+    <p *ngIf="isError">Error! {{msgError}}</p>
+</div>
