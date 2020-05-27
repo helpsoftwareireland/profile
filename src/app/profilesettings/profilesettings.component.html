@@ -1,23 +1,30 @@
-<div>
-    <h1>{{title}}</h1>
-    <div *ngIf="user">
-        <p>Username: {{user.username}}</p>
-        <p>Email: {{user.email}}</p>
+<div class="container">
+    <div class="switch-lang">Switch Language
+        <button (click)="switchLanguage('en')">English</button>
+        <button (click)="switchLanguage('de')">German</button>
+        <button (click)="switchLanguage('fr')">French</button>
     </div>
-    <div *ngIf="user">
-        <p>
-            <label>First Name:</label>
-            <input type="text" (ngModelChange)="changeName($event)" [(ngModel)]="user.firstName" />
-        </p>
-        <p>
-            <label>Last Name:</label>
-            <input type="text" (ngModelChange)="changeName($event)" [(ngModel)]="user.lastName" />
-            <input type="button" value="Save" (click)="saveProfile()" />
-        </p>
+    <div class="profile">
+        <h1>{{'profile.title' | translate}}</h1>
+        <p>{{'profile.greeting' | translate}}</p>
+        <div *ngIf="user&&!isLoading">
+            <p><b>Username:</b> {{user.username}}</p>
+            <p><b>Email:</b> {{user.email}}</p>
+        </div>
+        <div *ngIf="user&&!isLoading">
+            <p>
+                <label>First Name:</label>
+                <input type="text" (ngModelChange)="changeName($event)" [(ngModel)]="user.firstName" />
+            </p>
+            <p>
+                <label>Last Name:</label>
+                <input type="text" (ngModelChange)="changeName($event)" [(ngModel)]="user.lastName" />
+                <input type="button" value="Save" (click)="saveProfile()" />
+            </p>
+        </div>
+        <p *ngIf="isLoading">{{'profile.loading' | translate}}</p>
+        <p *ngIf="isSaving">Saving
+            profile...</p>
+        <p *ngIf="isError">Error! {{msgError}}</p>
     </div>
-    <p *ngIf="isLoading">Loading
-        profile...</p>
-    <p *ngIf="isSaving">Saving
-        profile...</p>
-    <p *ngIf="isError">Error! {{msgError}}</p>
 </div>

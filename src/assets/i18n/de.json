@@ -1,0 +1,7 @@
+{
+    "profile": {
+        "title": "Profil",
+        "greeting": "Mit dieser Komponente kann ein Benutzer sein Profil laden und bearbeiten",
+        "loading": "Ladeprofil..."
+    }
+}

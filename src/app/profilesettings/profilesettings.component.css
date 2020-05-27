@@ -1,0 +1,26 @@
+.container {
+    display: grid;
+    grid-template-rows: 60px 1fr;
+
+}
+
+.switch-lang {
+    background-color: #ebe6e6;
+    padding: 0 0 0 20px;
+    font-size: .9rem;
+}
+
+.profile {
+    padding: 0 0 0 20px;
+}
+label{
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-right: 10px;
+}
+button,
+input[type=button] {
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+}

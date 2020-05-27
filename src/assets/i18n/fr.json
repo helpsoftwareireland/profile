@@ -1,0 +1,7 @@
+{
+    "profile": {
+        "title": "Profil",
+        "greeting": "Avec ce module, un utilisateur peut charger et éditer son profil",
+        "loading": "Chargement du profil en cours..."
+    }
+}

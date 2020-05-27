@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IProfile, ProfileService } from '../_services/profile.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profilesettings',
@@ -14,9 +15,12 @@ export class ProfilesettingsComponent implements OnInit {
   public isSaving = false;
   public isError = false;
   msgError: any;
-  constructor(private profile: ProfileService) { }
+  constructor(private profile: ProfileService, private translate: TranslateService) { }
   ngOnInit() { this.getProfile(); }
   getProfile() {
+    this.isLoading = true;
+    this.isSaving = false;
+    this.isError = false;
     this.profile.getProfileUser()
       .then(
         res => {
@@ -68,5 +72,9 @@ export class ProfilesettingsComponent implements OnInit {
           this.msgError = msg.error;
         }
       );
+  }
+  switchLanguage(language: string) {
+    this.translate.use(language);
+    this.getProfile();
   }
 }

@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1rem;;
+    margin: 0;
+}
+p{
+    font-size: .9rem;
+}
+h1{
+    font-size: 1.5rem;
+}
